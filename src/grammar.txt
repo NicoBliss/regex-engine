@@ -1,0 +1,10 @@
+    block: '/' expr '/' spec 
+     expr: (junction | repeat)+
+ junction: repeat ('|' expr)?
+   repeat: (group|class|literal) (qualifier)?
+    group: '(' expr ')'
+    class: '[' '^'? range+ ']'
+    range: literal ('-' literal)?
+qualifier: '*' | '+' | '?' | '{' NUM (',' NUM?)? '}'
+  literal: LITERAL | BUILTIN
+     spec:
